@@ -2,16 +2,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:new_fitness_app/src/core/resource/app_another.dart';
-import 'package:new_fitness_app/src/data/source/local/pref/pref_local.dart';
 
-import 'package:new_fitness_app/src/domain/entity/food.dart';
-import 'package:new_fitness_app/src/presentation/view/meal/bloc/set_weight/set_weight_cubit.dart';
-import 'package:new_fitness_app/src/presentation/widget/global/bottom_navigation_bar.dart';
-import 'package:new_fitness_app/src/presentation/widget/global/meal_ingredients.dart';
+import '../../../../core/resource/app_another.dart';
 import '../../../../core/resource/app_colors.dart';
 import '../../../../core/resource/app_dimens.dart';
+import '../../../../data/source/local/pref/pref_local.dart';
+import '../../../../domain/entity/food.dart';
+import '../../../widget/global/bottom_navigation_bar.dart';
+import '../../../widget/global/meal_ingredients.dart';
 import '../../../widget/global/text_field.dart';
+import '../bloc/set_weight/set_weight_cubit.dart';
 
 class ModalPopupWidget extends StatelessWidget {
   const ModalPopupWidget(this.current, {super.key});

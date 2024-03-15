@@ -1,3 +1,4 @@
+import 'package:fitness_and_nutrition/presentation/bloc/nutri_cubit/nutri_cubit.dart';
 import 'package:get_it/get_it.dart';
 
 import '../../data/repository/infomation_repository_impl.dart';
@@ -16,7 +17,9 @@ import '../../domain/usecase/water/get_all_water_usecase.dart';
 import '../../domain/usecase/water/insert_water_usecase.dart';
 import '../../domain/usecase/water/update_water_usecase.dart';
 import '../../presentation/bloc/infotion_cubit/infomation_cubit.dart';
+import '../../presentation/bloc/water_cubit/water_cubit.dart';
 import '../../presentation/view/into/bloc/cubit/infomation_body_dart_cubit.dart';
+import '../../presentation/view/meal/bloc/meal/meal_cubit.dart';
 
 final injector = GetIt.I;
 
@@ -56,15 +59,15 @@ Future<void> initializeDependencies() async {
   // InfomationCubit
   injector.registerFactory<InfomationBodyDartCubit>(
       () => InfomationBodyDartCubit(insretDataUseCase: injector()));
-  // injector.registerFactory<MealCubit>(
-  //     () => MealCubit(insretMealUseCase: injector()));
+  injector.registerFactory<MealCubit>(
+      () => MealCubit(insretMealUseCase: injector()));
   // Common bloc
   injector.registerLazySingleton<InfomationCubit>(() => InfomationCubit(
       getAllDataUseCase: injector(), insretDataUseCase: injector()));
-  // injector.registerLazySingleton<NutriCubit>(() =>
-  //     NutriCubit(getAllMealUseCase: injector(), insretMealUseCase: injector()));
-  // injector.registerLazySingleton<WaterCubit>(() => WaterCubit(
-  //     getAllWaterUseCase: injector(),
-  //     insertWaterUseCase: injector(),
-  //     updateWaterUseCase: injector()));
+  injector.registerLazySingleton<NutriCubit>(() =>
+      NutriCubit(getAllMealUseCase: injector(), insretMealUseCase: injector()));
+  injector.registerLazySingleton<WaterCubit>(() => WaterCubit(
+      getAllWaterUseCase: injector(),
+      insertWaterUseCase: injector(),
+      updateWaterUseCase: injector()));
 }

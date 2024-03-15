@@ -1,4 +1,3 @@
-import 'package:fitness_and_nutrition/core/resource/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -11,34 +10,36 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //Size size = MediaQuery.of(context).size;
+    Size size = MediaQuery.of(context).size;
 
-    return BlocConsumer<SplashCubit, SplashState>(
-        listener: (context, state) async {
-      print('3');
-      if (state is SplashLoaded) {
-        if (state.data) {
-          print('1');
-          Navigator.pushReplacementNamed(context, RouteGenerator.mainScreen);
-        } else {
-          print('2');
-          try {
-            Navigator.pushNamed(context, RouteGenerator.firstScreen);
-            print('212');
-          } catch (err) {
-            print(err.toString());
+    return BlocListener<InfomationCubit, InfomationState>(
+      listener: (context, state) {
+        if (state.check != 0) {
+          if (state.check == 1) {
+            context.read<SplashCubit>().onChangeSplash(false);
+          } else {
+            context.read<SplashCubit>().onChangeSplash(true);
           }
         }
-      }
-    }, builder: (context, state) {
-      print('quá hề');
-
-      return Scaffold(
-        body: const Text(
-          'ádadsadada',
-          style: TextStyle(color: AppColor.black),
-        ),
-      );
-    });
+      },
+      child: BlocConsumer<SplashCubit, SplashState>(
+          listener: (context, state) async {
+        if (state is SplashLoaded) {
+          if (state.data) {
+            Navigator.pushReplacementNamed(context, RouteGenerator.mainScreen);
+          } else {
+            Navigator.pushNamed(context, RouteGenerator.firstScreen);
+          }
+        }
+      }, builder: (context, state) {
+        return Scaffold(
+          body: SizedBox(
+            height: size.height * 0.6,
+            width: size.width * 0.6,
+            child: Image.asset('assets/images/cbum.png'),
+          ),
+        );
+      }),
+    );
   }
 }

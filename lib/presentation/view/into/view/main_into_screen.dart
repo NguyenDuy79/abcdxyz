@@ -1,4 +1,5 @@
 import 'package:fitness_and_nutrition/presentation/view/into/view/pages/ratio_nutrition.dart';
+import 'package:fitness_and_nutrition/presentation/view/into/view/pages/traning_day_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'pages/age_screen.dart';
@@ -7,7 +8,7 @@ import 'pages/gender_screen.dart';
 import 'pages/goal_screen.dart';
 import 'pages/height_screen.dart';
 import 'pages/start_screen.dart';
-import 'pages/traning_day_screen.dart';
+
 import 'pages/weight_sceen.dart';
 
 // ignore: must_be_immutable
@@ -41,7 +42,7 @@ List<Widget> listPages(PageController controller) {
     ChooseAgeScreen(controller),
     ChooseHeightWidget(controller),
     ChooseWeightWidget(controller),
-    //ChoooseTrainingDay(controller),
+    ChoooseTrainingDay(controller),
     RatioNutrition(controller)
     //FitnessTrainingExperience(controller)
   ];

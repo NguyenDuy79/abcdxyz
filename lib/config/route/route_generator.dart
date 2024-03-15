@@ -14,6 +14,8 @@ import '../../presentation/view/main/screen/main_screen.dart';
 import '../../presentation/view/main/screen/more_creen.dart';
 import '../../presentation/view/main/screen/nutrition_screen.dart';
 import '../../presentation/view/main/screen/plan_screen.dart';
+import '../../presentation/view/meal/bloc/meal/meal_cubit.dart';
+import '../../presentation/view/meal/meal.dart';
 import '../../presentation/view/splash/bloc/splash_cubit/splash_cubit.dart';
 import '../../presentation/view/splash/view/splash_screen.dart';
 
@@ -37,8 +39,7 @@ class RouteGenerator {
       case splashScreen:
         return MaterialPageRoute(
             builder: (context) => BlocProvider<SplashCubit>(
-                  create: (context) =>
-                      SplashCubit(getAllDataUseCase: injector()),
+                  create: (context) => SplashCubit(),
                   child: const SplashScreen(),
                 ));
       case firstScreen:
@@ -66,12 +67,12 @@ class RouteGenerator {
                   ],
                   child: const MainScreen(),
                 ));
-      // case mealScreen:
-      //   return MaterialPageRoute(
-      //       builder: (context) => BlocProvider<MealCubit>(
-      //             create: (context) => injector<MealCubit>(),
-      //             child: const MealScreen(),
-      //           ));
+      case mealScreen:
+        return MaterialPageRoute(
+            builder: (context) => BlocProvider<MealCubit>(
+                  create: (context) => injector<MealCubit>(),
+                  child: const MealScreen(),
+                ));
       default:
         return _exceptionRoute();
     }

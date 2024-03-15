@@ -1,8 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:new_fitness_app/src/core/resource/app_another.dart';
-import 'package:new_fitness_app/src/domain/entity/food.dart';
-import 'package:new_fitness_app/src/domain/usecase/meal/insert_meal_usecase.dart';
+
+import '../../../../../core/resource/app_another.dart';
+import '../../../../../domain/entity/food.dart';
+import '../../../../../domain/usecase/meal/insert_meal_usecase.dart';
 
 part 'meal_state.dart';
 
